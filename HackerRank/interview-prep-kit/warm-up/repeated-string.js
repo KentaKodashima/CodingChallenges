@@ -19,8 +19,6 @@ function repeatedString(s, n) {
     current++
   }
 
-  console.log(aCountInWord, 'aCountInWord')
-
   current = 0
   while (current < remainder) {
     if (s[current] === 'a') {
