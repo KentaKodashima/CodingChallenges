@@ -2,7 +2,7 @@
  * Hash Tables: Ransom Note
  * 
  * URL: https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps
- * Arguments: An unordered array
+ * Arguments: two arrays of strings
 */
 function checkMagazine(magazine, note) {
   const hashStr = (key, arrayLen=100) => {
