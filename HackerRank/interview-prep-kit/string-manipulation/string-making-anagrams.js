@@ -33,9 +33,6 @@ function makeAnagram(a, b) {
     }
   }
 
-  console.log(JSON.stringify(objA))
-  console.log(JSON.stringify(objB))
-
   for (let key in objB) {
     if (!objA[key]) total += objB[key]
   }
