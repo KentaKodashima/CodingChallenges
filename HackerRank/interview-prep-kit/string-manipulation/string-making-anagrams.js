@@ -27,14 +27,17 @@ function makeAnagram(a, b) {
 
   for (let key in objA) {
     if (!objB[key]) {
-      total += 1
+      total += objA[key]
     } else if (objB[key] !== objA[key]) {
       total += Math.abs(objA[key] - objB[key])
     }
   }
 
+  console.log(JSON.stringify(objA))
+  console.log(JSON.stringify(objB))
+
   for (let key in objB) {
-    if (!objA[key]) total += 1
+    if (!objA[key]) total += objB[key]
   }
   
   return total
