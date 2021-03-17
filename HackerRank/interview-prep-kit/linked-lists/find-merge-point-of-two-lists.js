@@ -15,19 +15,10 @@ function findMergeNode(headA, headB) {
   }
 
   for (let i = 0; i < refs.length; i++) {
-    if (refs[i] === second) return second.data
-    if (second) second = second.next
+    second = headB
+    while (second) {
+      if (refs[i] === second) return second.data
+      second = second.next
+    }
   }
-
-  // let firstObj = {}
-
-  // while (first) {
-  //   firstObj[first.data] = true
-  //   first = first.next
-  // }
-
-  // while (second) {
-  //   if (firstObj[second.data] && second.data !== 1) return second.data
-  //   second = second.next
-  // }
 }
