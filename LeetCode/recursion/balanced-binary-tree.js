@@ -17,16 +17,15 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-  let leftLevel = 0
-  let rightLevel = 0
-
-  function getHeight(node) {
+  const getHeight = (node) => {
     if (!node) return 0
-    return Math.max(getHeight(node.left), getHeight(node.right)) + 1
+
+    let leftLevel = getHeight(node.left)
+    let rightLevel = getHeight(node.right)
+    
+    if (leftLevel === -1 || rightLevel === -1 || Math.abs(leftLevel - rightLevel) > 1) return -1
+    return Math.max(leftLevel, rightLevel) + 1
   }
 
-  leftLevel = getHeight(root.left)
-  rightLevel = getHeight(root.right)
-
-  return Math.abs(leftLevel - rightLevel) < 2
+  return getHeight(root) !== -1
 }
