@@ -17,29 +17,21 @@
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
-  let visitedNodes = []
   let result = []
 
-  function traverse(node) {
-    visitedNodes.push(node)
-    if (node.left) traverse(node.left)
-    if (node.right) traverse(node.right)
-
-    if (!node.left && !node.right) {
-      let str = ''
-      let current = null
-      while (visitedNodes.length !== 1) {
-        current = visitedNodes.shift()
-        str += `${current.val}->`
-      }
-      current = visitedNodes.shift()
-      str += `${current.val}`
-      result.push(str)
-      visitedNodes = [root]
-    }
+  function traverse(node, path) {
+    // Add the node's value first
+    path += node.val
+    // Push the path if it's a leaf node
+    if (!node.left && !node.right) result.push(path)
+    // Add the arraw
+    path += '->'
+    // Continue traversing
+    if (node.left) traverse(node.left, path)
+    if (node.right) traverse(node.right, path)
   }
 
-  traverse(root)
+  traverse(root, '')
 
   return result
 }
