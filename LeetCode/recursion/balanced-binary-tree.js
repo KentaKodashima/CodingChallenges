@@ -17,7 +17,7 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-  const getHeight = (node) => {
+  const getHeightIfBalanced = (node) => {
     if (!node) return 0
 
     let leftLevel = getHeight(node.left)
@@ -27,5 +27,10 @@ var isBalanced = function(root) {
     return Math.max(leftLevel, rightLevel) + 1
   }
 
-  return getHeight(root) !== -1
+  return getHeightIfBalanced(root) !== -1
 }
+
+/**
+ * Another approach:
+ *    https://www.growingwiththeweb.com/2015/11/check-if-a-binary-tree-is-balanced.html
+*/
