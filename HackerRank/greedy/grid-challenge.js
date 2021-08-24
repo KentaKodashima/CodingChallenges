@@ -44,10 +44,13 @@ function gridChallenge(grid) {
   let rows = []
   let cols = []
 
+  if (grid.length === 1 & grid[0].length === 1) return 'YES'
+
   for (let row of grid) {
     rows.push(mergeSort(row).join(''))
-    // console.log(mergeSort(row).join(''),'row')
   }
+
+  console.log(rows.toString(),'rows')
 
   for (let row of rows) {
     for (let i = 0; i < row.length; i++) {
@@ -59,19 +62,14 @@ function gridChallenge(grid) {
     }
   }
 
-  console.log(rows.toString())
-
   for (let col of cols) {
     let str = mergeSort(col).join('')
-    console.log(str,'str')
-    console.log(col,'col')
     if (str !== col) return 'NO'
   }
 
   return 'YES'
 }
 
-// console.log(gridChallenge(['ebacd', 'fghij', 'olmkn', 'trpqs', 'xywuv']))
 console.log(gridChallenge(['ppp', 'ypp', 'wyw']))
-console.log(gridChallenge(['tjxxx', 'xtxxj', 'rzzzz', 'zzrzz', 'rzzzz']))
-// console.log(gridChallenge(['lyivr', 'jgfew', 'uweor', 'qxwyr', 'uikjd']))
+console.log(gridChallenge(['lyivr', 'jgfew', 'uweor', 'qxwyr', 'uikjd']))
+console.log(gridChallenge(['l']))
